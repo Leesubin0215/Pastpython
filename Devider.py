@@ -11,10 +11,20 @@ def btn_click():
     labelRes1.place(x=21, y=86)
     labelRes2 = tkinter.Label(root, text=str2, font=("맑은 고딕",10))
     labelRes2.place(x=21, y=116)
+def mouseMove(event):
+    x= event.x
+    y= event.y
+    labelMouse.config(text=str(x)+","+str(y))
+    labelMouse.place(x=0, y=280)#라벨을 붙인다
 
 root = tkinter.Tk()
 root.title("산수 연산자")
 root.geometry("400x300")
+
+#좌표 출력기
+root.bind("<Motion>", mouseMove)
+labelMouse = tkinter.Label(root, text="," , font=("맑은 고딕",10))#라벨을 만든다
+labelMouse.place(x=0, y=130)
 
 label1 =tkinter.Label(root, text= "나눠지는 수", font=("맑은 고딕",10))
 label2=tkinter.Label(root, text= "나눠지는 수", font=("맑은 고딕",10))
